@@ -8,10 +8,12 @@ class SignalManager {
 public:
   //http://en.cppreference.com/w/cpp/utility/program/signal
   //http://en.cppreference.com/w/cpp/language/lambda
-  static void AddHandler(int signal, std::function<void(void)> handler);
+  static void AddCallback(int signal, std::function<void(int)> handler);
+  static void SetLastCallback(int signal, std::function<void(int)> handler);
 
 private:
   static void _topHandler(int signal);
-  static std::list<std::function<void(void)>> _sigint_handlers;
+  static std::list<std::function<void(int)>> _sigint_callbacks;
+  static std::function<void(int)> _sigint_last_callback;
 };
 }
