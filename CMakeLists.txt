@@ -111,27 +111,22 @@ ENDFOREACH()
 ##################################
 
 ## Add support for C++11, supported in ROS Kinetic and newer
-#add_definitions(-fPIC -std=c++11)
+add_definitions(-fPIC -std=c++11)
 
-#SET(SRCPATH src/)
-#SET(${PROJECT_NAME}_INCLUDE_DIRS
-#    ${CMAKE_CURRENT_SOURCE_DIR}/${SRCPATH}include
-#    ${${DEP0_GIT}_INCLUDE_DIRS}
-#    ${${DEP1_GIT}_INCLUDE_DIRS}
-#)
+SET(SRCPATH src/)
+SET(${PROJECT_NAME}_INCLUDE_DIRS
+    ${CMAKE_CURRENT_SOURCE_DIR}/${SRCPATH}include
+)
 
-#include_directories(
-#  ${${PROJECT_NAME}_INCLUDE_DIRS}
-#)
+include_directories(
+  ${${PROJECT_NAME}_INCLUDE_DIRS}
+)
 
-#SET(${PROJECT_NAME}_CPP_FILES
-#                        ${SRCPATH}module0.cpp
-#                        ${SRCPATH}module1.cpp
-#                            ...
-#                        )
+SET(${PROJECT_NAME}_CPP_FILES
+                        ${SRCPATH}SignalManager.cpp
+                        )
 
-#add_library(${PROJECT_NAME} SHARED ${${PROJECT_NAME}_CPP_FILES})
-#target_link_libraries(${PROJECT_NAME} ${DEP0_GIT} ${DEP1_GIT})
+add_library(${PROJECT_NAME} SHARED ${${PROJECT_NAME}_CPP_FILES})
 
 #add_executable (main ${SRCPATH}main/main.cpp)
 #target_link_libraries(main ${LIB2_GIT} ... ${PROJECT_NAME})
