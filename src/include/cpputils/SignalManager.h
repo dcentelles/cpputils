@@ -13,7 +13,7 @@ public:
 
 private:
   static void _topHandler(int signal);
-  static std::list<std::function<void(int)>> _sigint_callbacks;
-  static std::function<void(int)> _sigint_last_callback;
+  static std::list<std::function<void(int)>> _sigint_callbacks, _sigterm_callbacks;
+  static std::function<void(int)> _sigint_last_callback, _sigterm_last_callback;
 };
 }
