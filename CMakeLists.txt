@@ -128,6 +128,7 @@ include_directories(
 
 SET(${PROJECT_NAME}_CPP_FILES
                         ${SRCPATH}SignalManager.cpp
+                        ${SRCPATH}Timer.cpp
                         )
 
 add_library(${PROJECT_NAME} SHARED ${${PROJECT_NAME}_CPP_FILES})
