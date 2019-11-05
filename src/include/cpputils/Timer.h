@@ -8,6 +8,20 @@
 
 namespace cpputils {
 
+class TimerNanos {
+public:
+    TimerNanos();
+    void Reset();
+    long Last() const;
+    long Now() const;
+    unsigned long Elapsed() const;
+
+private:
+    typedef std::chrono::high_resolution_clock clock_;
+    typedef std::chrono::duration<unsigned long, std::nano> nanos_;
+    std::chrono::time_point<clock_> beg_;
+};
+
 class Timer {
 public:
   Timer();
